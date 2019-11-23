@@ -27,19 +27,25 @@ public class Utilities {
     public String removePairs(String source) {
 
         // If length is less than 2, there won't be any pairs
-        if(source.length() < 2) {
+        if(source == null || source.length() < 2) {
             return source;
         }
 
         StringBuilder sb = new StringBuilder();
         char[] string = source.toCharArray();
 
-        for(int i = 0; i < string.length;i++) {
+        for(int i = 0; i < string.length - 1;i++) {
             System.out.println(string[i]);
-            if(string[i] != string[i++] ) {
+            if(string[i] != string[i + 1] ) {
                 sb.append(string[i]);
             }
         }
+
+        System.out.println(string[string.length-1]);
+        // Add the final character, which is always safe
+        sb.append(string[string.length -1]);
+
+
         return sb.toString();
 
     }
@@ -50,7 +56,7 @@ public class Utilities {
         return (a/b) + (a * 30) - 2;
     }
 
-    public String NullIfOddLength(String source) {
+    public String nullIfOddLength(String source) {
         if(source.length() % 2 == 0) {
             return source;
         }
